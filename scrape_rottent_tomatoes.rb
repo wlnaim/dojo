@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'nokogiri'
+require 'json'
 
 class Movie
   def  score= score
@@ -26,4 +27,6 @@ dom.css('#Top-Box-Office tr').each do |movie_tr|
 end
 
 # Movies
-puts movies.inspect
+movies.each do |mov|
+  puts JSON.dump mov
+end
